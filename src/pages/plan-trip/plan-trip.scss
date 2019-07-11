@@ -1,0 +1,87 @@
+page-plan-trip {
+	.background{
+        background-image: url("..\\assets\imgs\background\bg.jpg");
+        color: white;
+        position: absolute;
+        top: 0;
+        padding: 10vw;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        z-index: 2;
+    }
+    .Title-Style{
+        text-align: center;    
+    }
+    .background-style {
+		background-image: url("..//assets/imgs/background/bg.jpg");
+	}
+    .logo {
+        margin-bottom:1px;
+        width: 40%;
+    }
+    ion-card.card {
+            box-shadow: none;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;          
+    }
+    .cardHeader-style{
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+    }
+    .image-container-style{
+        
+    }
+	.item {
+		margin-bottom: 10px;
+		background: rgba(255, 255, 255, 0.5);
+		border: medium none;
+
+		.text-input, {
+			color: #fff;
+		}
+
+		input::-moz-placeholder  {
+			color: #fff!important;
+		}
+
+		input:-moz-placeholder {
+			color: #fff!important;
+		}
+
+		*::-webkit-input-placeholder  {
+			color: #fff!important;
+		}
+
+		*:-ms-input-placeholder  {
+			color: #fff!important;
+		}
+
+		*:-moz-placeholder  {
+			color: #fff!important;
+		}
+    }
+    .button-style{
+       background-color: #fff;
+       color: black;
+       border-radius:5px;
+       border:none;
+       opacity:0.7;
+       filter: alpha(opacity=50)
+    }
+    .searchbar-style{
+        opacity:0.7;
+       filter: alpha(opacity=50);
+    }
+    .top-place-container{
+        
+    }
+    .top-place-img{
+        border-radius: 5px;
+        margin-top:0;
+    }
+    .h1{
+        text-align: center;
+    }
+}

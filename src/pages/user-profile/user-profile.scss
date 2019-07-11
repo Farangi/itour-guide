@@ -1,0 +1,28 @@
+page-user-profile {
+    .img-circle{
+        border-radius: 30%;
+		
+    }
+    ion-label{
+    
+    }
+    ion-item{
+    	ion-icon {
+      		font-size: 30px;
+    	}
+    }
+    ul {
+  		padding: 0px;
+
+  		&.rating li {
+    		padding: 5px 10px !important;
+		    background: none;
+    		color: #ffb400;
+
+    		ion-icon {
+      			font-size: 30px;
+    		}
+  		}
+	}
+}
+ 

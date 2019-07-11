@@ -1,0 +1,52 @@
+<!--
+  Generated template for the PlanTripPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="twitter">
+    <ion-title>Plan a Trip</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background-style">
+	<ion-card class="card-style">
+	    <ion-card-header class="cardHeader-style">
+	    Select Interest
+	    </ion-card-header>
+	    <ion-card-content>
+	    <ion-list radio-group [(ngModel)]="this.interest" (ionChange)="getPlacesByInterest()">
+	       	<ion-item>
+			    <ion-label>Hilly</ion-label>
+			    <ion-radio value="Hill" checked="checked"></ion-radio>
+		  	</ion-item>
+			<ion-item>
+			    <ion-label>Museams</ion-label>
+			    <ion-radio value="Museam"></ion-radio>
+			</ion-item>
+			<ion-item>
+			    <ion-label>Hiking</ion-label>
+			    <ion-radio value="mountain"></ion-radio>
+			</ion-item>
+	    </ion-list>
+	    </ion-card-content>
+    </ion-card>
+    <hr>
+    <h2 style="text-align:center">Places</h2>
+    <ion-card class="card-style">
+	    <div class="top-place-container">
+	    	<ion-label *ngIf="!places" color="light"><h2>Loading Places Please Wait...</h2></ion-label>
+	        <ion-card *ngFor="let place of places">
+	            <button ion-item (click)="selectPlace(place)">
+	                <h2 style="color: white">{{place.name}}</h2>
+	                <rating style="color: #f53d3d" [(ngModel)]="place.rating" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+	                <img *ngIf="place.photos" class="top-place-img" src="https://maps.googleapis.com/maps/api/place/photo?photoreference={{place.photos[0].photo_reference}}&maxwidth=1600&maxheight=1600&key=AIzaSyCdfM_8VXjy2Fg0Zh_rCJu8Xyp0JxlXJxo">
+	            </button>
+		    </ion-card>
+	    </div>
+    </ion-card>
+</ion-content>

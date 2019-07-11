@@ -1,0 +1,77 @@
+<!--
+  Generated template for the PlaceDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title  class="Title-Style"><img class="logo" src="../assets/imgs/Logo/logo.png" /></ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="background-style">
+        <ion-card *ngIf="this.place">
+        <ion-card-header class="cardHeader-style">
+            {{this.place.name}}
+        </ion-card-header>
+        <ion-card-content>
+                <img class="top-place-img" *ngIf="place.photos" src="https://maps.googleapis.com/maps/api/place/photo?photoreference={{place.photos[0].photo_reference}}&maxwidth=1600&maxheight=1600&key=AIzaSyCdfM_8VXjy2Fg0Zh_rCJu8Xyp0JxlXJxo">
+                <hr>
+            <ion-item *ngIf="this.weather">
+                <h2>Weather Report</h2>
+                <hr>
+                <h1>{{this.weather.main.temp}} 'K</h1>
+                <h4>{{this.weather.weather[0].main}}</h4>
+                <p>{{this.weather.weather[0].description}}</p>
+                <ion-icon name="cloudy"></ion-icon>
+                <ion-icon name="cloudy-night"></ion-icon>
+                <ion-icon name="flash"></ion-icon>
+                <ion-icon name="rainy"></ion-icon>
+                <ion-icon name="sunny"></ion-icon>
+                <ion-icon name="thunderstorm"></ion-icon>
+            </ion-item>
+            <hr>
+            <ion-item *ngIf="!this.currentUser.guide">
+                <h2>Available Guides</h2>
+                <hr>
+                    <ion-list inset>
+                            <button ion-item icon-left>
+                            <ion-icon name="ios-navigate" item-start color="primary"></ion-icon>
+                            <p>Guide Umer</p>
+                            <rating style="color: #f53d3d" [(ngModel)]="this.guide" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+                            </button>
+                  </ion-list> 
+            </ion-item>
+            <ion-item *ngIf="this.currentUser.guide">
+            	<h2>Register as Guide</h2>
+            	<hr>
+            	<button ion-button round large (click)="registerAsGuide()"> Register </button>
+            </ion-item>
+            <hr>
+            <ion-item>
+            	<h2>Reviews</h2>
+            	<hr>
+            	<ion-list>
+				  <button ion-item *ngFor="let review of this.reviews" (click)="sentimentAnalysis({sentiment: review.sentiment})">
+				    <h2>{{review.author_name}}</h2>
+				    <p>{{review.text}}</p>
+				    <ion-badge item-end>{{review.sentiment.comparative | number : '1.2-2'}}</ion-badge>
+				  </button>
+				</ion-list>
+				<hr>
+				<ion-item>
+				    <h2>Total</h2>
+				    <p>Out of five</p>
+				    <ion-badge item-end>{{this.total  | number : '1.2-2'}}</ion-badge>
+				  </ion-item>
+            </ion-item>
+            <hr>
+        </ion-card-content>
+    </ion-card>
+    <ion-item>
+        <h2>Map</h2>
+        <hr>
+    </ion-item>
+  	<div #map id="map"></div>
+</ion-content>
+

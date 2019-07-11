@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="twitter">
+    <ion-title>My Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<div padding>
+    <ion-item>
+        <img class="img-circle" src="assets/avatar.png">
+    </ion-item>
+    <ion-item *ngIf="this.currentUser.guide" style="text-align: center">
+        <ion-label><ion-icon name="ios-navigate" color="primary"> Guide </ion-icon></ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-label>
+          <span><b>Rating: </b>
+          <rating [(ngModel)]="this.currentUser.rating" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+          </span>
+        </ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-label>
+          <span><b>First Name: </b>{{currentUser.firstName}}</span>
+        </ion-label>
+    </ion-item> 
+    <ion-item>
+        <ion-label>
+          <span><b>Last Name: </b>{{currentUser.lastName}}</span>
+        </ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-label>
+          <span><b>User Name: </b>{{currentUser.username}}</span>
+        </ion-label>
+    </ion-item>  
+    <button ion-button block color="danger">
+        <ion-label>Settings</ion-label>
+        <ion-icon name="settings"></ion-icon>
+    </button>
+    <button ion-button icon-only block color="danger" (click)="logoutme()">
+        <ion-label>Log Out</ion-label>
+        <ion-icon name="log-out"></ion-icon>
+    </button>
+  </div>      
+</ion-content>

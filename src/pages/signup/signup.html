@@ -1,0 +1,42 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding class="transparent-header">
+    <ion-header>
+      <ion-navbar>
+      </ion-navbar>
+    </ion-header>
+    <img class="logo" src="../../assets/logos/umer3.png" />
+    <div padding>
+	    <form name="signupForm" (ngSubmit)="signup()" #f="ngForm">
+	      <ion-item>
+	        <ion-input type="text" placeholder="First Name" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"></ion-input>
+	      </ion-item>
+	      <ion-item>
+	          <ion-input type="text" placeholder="Last Name" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel"></ion-input>
+	      </ion-item>
+	      <ion-item>
+	          <ion-input type="text" placeholder="User Name" name="username" [(ngModel)]="model.username" #username="ngModel"></ion-input>
+	        </ion-item>
+	      <ion-item>
+	        <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel"></ion-input>
+	      </ion-item>
+	      <ion-item>
+	      	<ion-label>Guide</ion-label>
+    		<ion-checkbox name="guide" [(ngModel)]="model.guide" #guide="ngModel"></ion-checkbox>
+	      </ion-item>
+	      <button ion-button block outline color="light" class="login-button">Sign Up</button>
+	    </form>
+	    <alert></alert>
+    </div>
+   <ion-footer>
+    <ion-toolbar class="footer">
+      <div>
+        <span><strong>Click here for help?</strong></span>
+      </div>
+    </ion-toolbar>
+  </ion-footer>

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="twitter">
+    <ion-title>Best Places</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="background-style">
+     <div class="top-place-container">
+     	<ion-label *ngIf="!places" color="light"><h2>Loading Places Please Wait...</h2></ion-label>
+	    <ion-card *ngFor="let place of places">
+			<button ion-item (click)="selectPlace(place)">
+				<h2>{{place.name}}</h2>
+				<p>{{place.rating}}</p>
+				<rating [(ngModel)]="place.rating" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
+				<img *ngIf="place.photos" class="top-place-img" src="https://maps.googleapis.com/maps/api/place/photo?photoreference={{place.photos[0].photo_reference}}&maxwidth=1600&maxheight=1600&key=AIzaSyCdfM_8VXjy2Fg0Zh_rCJu8Xyp0JxlXJxo">
+			</button>
+	    </ion-card>
+	</div>
+</ion-content>
